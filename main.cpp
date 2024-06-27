@@ -105,15 +105,15 @@ node* CayleyTree(int *arr, int o, int h, int v) {
 }
 
 
-node insertDataOfCayleyTree(node *head, int*arr, int o, int h)
-{
-    vector<node> QQ;
-    QQ.push_back(*head);
-    int idx = 0;
-    while(QQ.size()){
-        QQ.begin()->data = arr[idx++];
-
-        }
-    }
-}
+//node insertDataOfCayleyTree(node *head, int*arr, int o, int h)
+//{
+  //  vector<node> QQ;
+   // QQ.push_back(*head);
+   // i//nt idx = 0;
+   // while(QQ.size()){
+ //       QQ.begin()->data = arr[idx++];
+//
+//        }
+//    }
+//}
 
