@@ -1,0 +1,3 @@
+F:/IIEST/PROJECT/CA on Graphs/CT/cmake-build-debug/CMakeFiles/CT.dir
+F:/IIEST/PROJECT/CA on Graphs/CT/cmake-build-debug/CMakeFiles/edit_cache.dir
+F:/IIEST/PROJECT/CA on Graphs/CT/cmake-build-debug/CMakeFiles/rebuild_cache.dir
