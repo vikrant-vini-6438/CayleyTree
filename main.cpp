@@ -56,7 +56,7 @@ node* CayleyTree(int *arr, int o, int h, int v) {
     int *height = new int;
     *height = h-1;
     vector<node*> temp;
-    while(1)
+    while( 1 )
     {
         if(*height == 0){break;}
         for (int i = 0;i<queue.size();i++){
