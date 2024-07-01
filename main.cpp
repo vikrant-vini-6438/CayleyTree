@@ -14,13 +14,13 @@ int noOfVertices(int order, int levels);
 node* CayleyTree(int *arr, int o, int h,int v);
 int main(){
     int height, order = 2;
-    cout<<"height:";
     cin>>height;
 
     int V = noOfVertices(order, height);
     int arr[V];
     for (int i = 0;i<V;i++){
-        cin>>arr[i];
+        // cin>>arr[i];
+        arr[i] = i;
     }
     node* head = CayleyTree(arr, order, height, V);
     return 0;
@@ -38,6 +38,7 @@ int noOfVertices(int order, int levels){
 }
 
 node* CayleyTree(int *arr, int o, int h, int v) {
+
     int idx = 0;
     vector<node*> queue;
     node *root = new node[1];
@@ -47,6 +48,7 @@ node* CayleyTree(int *arr, int o, int h, int v) {
         root->next[i].data = arr[idx++];
         root->next[i].prev = root;
         queue.push_back(&root->next[i]);
+
     }
     int *height = new int;
     *height = h-1;
@@ -55,21 +57,20 @@ node* CayleyTree(int *arr, int o, int h, int v) {
     {
         if(*height == 0){break;}
         for (int i = 0;i<queue.size();i++){
-          queue[i].next = new node[o];
-          for(int j = 0;j<o;j++){
+
+            queue[i]->next = new node[o];
+            for(int j = 0;j<o;j++)
+            {
                 queue[i]->next[j].data = arr[idx++];
-              queue[i]->next[j].prev = (queue[i]);
-              temp.push_back(&queue[i].next[j]);
-          }
+                queue[i]->next[j].prev = (queue[i]);
+                temp.push_back(&queue[i]->next[j]);
+            }
         }
         queue.clear();
-        for(node i:temp){
-            queue.push_back(i);
-        }
+        queue = temp;
         *height -= 1;
     }
+
     delete height;
     return root;
 }
-
-
