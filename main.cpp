@@ -2,7 +2,6 @@
 #include<cmath>
 using namespace std;
 
-//int *order = new int;
 
 struct treeNode{
     treeNode* parent = nullptr;
@@ -20,23 +19,30 @@ int noOfVertices(int height, int order){
 treeNode *cayleyTree(int h, int o){
     treeNode* root = new treeNode;
 //    root->data = ar[0];
-    
+    int idx = 0;
+    root->parent = new treeNode;
+    root->childOne = new treeNode;
+    root->childTwo = new treeNode;
+
     return root;
 }
-treeNode* insertDataCayleyTree(int *H, int * ar){
-    return nullptr;
-}
+//treeNode* insertDataCayleyTree(int *H, int * ar){
+//
+//    return nullptr;
+//}
 int main(){
     int order = 2,height;
     cin>>height;
     int V = noOfVertices(height, order);
     int arr[V];
     for(int i = 0;i<V;i++){
-//        cin>>arr[i];
         arr[i] = i;
     }
 
-    treeNode* head = cayleyTree(height, order, arr);
-//    delete order;
+    treeNode* head = cayleyTree(height, order);
+    delete head->childTwo;
+    delete head->childOne;
+    delete head->parent;
+    delete head;
     return 0;
 }
