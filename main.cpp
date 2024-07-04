@@ -1,5 +1,6 @@
 #include<iostream>
 #include<cmath>
+#include<vector>
 using namespace std;
 
 
@@ -9,6 +10,7 @@ struct treeNode{
     treeNode* childTwo = nullptr;
     int data;
 };
+typedef struct treeNode treeNode;
 int noOfVertices(int height, int order){
     int result = 1;
     for(int i = 0;i<height;i++){
@@ -16,13 +18,21 @@ int noOfVertices(int height, int order){
     }
     return result;
 }
-treeNode *cayleyTree(int h, int o){
+treeNode *cayleyTree(int h, int o, int v){
+    if (h == 0){return nullptr;}
     treeNode* root = new treeNode;
 //    root->data = ar[0];
-    int idx = 0;
+
     root->parent = new treeNode;
     root->childOne = new treeNode;
     root->childTwo = new treeNode;
+    root->childOne->parent = root;
+    root->childTwo->parent = root;
+    root->parent->parent = root;
+    int idx = 3;
+    vector<treeNode*> queue({&root->parent, &root->childOne, &root->childTwo});
+
+
 
     return root;
 }
@@ -39,7 +49,7 @@ int main(){
         arr[i] = i;
     }
 
-    treeNode* head = cayleyTree(height, order);
+    treeNode* head = cayleyTree(height, order,V);
     delete head->childTwo;
     delete head->childOne;
     delete head->parent;
