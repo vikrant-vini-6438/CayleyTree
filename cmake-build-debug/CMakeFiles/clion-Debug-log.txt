@@ -1,4 +1,5 @@
 "C:\Program Files\JetBrains\CLion 2023.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2023.2/bin/ninja/win/x64/ninja.exe" -G Ninja -S "F:\IIEST\PROJECT\CA on Graphs\CT" -B "F:\IIEST\PROJECT\CA on Graphs\CT\cmake-build-debug"
+<<<<<<< HEAD
 -- The C compiler identification is GNU 13.1.0
 -- The CXX compiler identification is GNU 13.1.0
 -- Detecting C compiler ABI info
@@ -13,4 +14,8 @@
 -- Detecting CXX compile features - done
 -- Configuring done (4.6s)
 -- Generating done (0.0s)
+=======
+-- Configuring done (0.8s)
+-- Generating done (0.1s)
+>>>>>>> origin/version2
 -- Build files have been written to: F:/IIEST/PROJECT/CA on Graphs/CT/cmake-build-debug
