@@ -139,4 +139,4 @@ int main(){
     delete head;
     return 0;
 }
->>>>>>> origin/version2
+// >>>>>>> origin/version2
