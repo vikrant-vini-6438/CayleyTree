@@ -1,5 +1,5 @@
 #include<iostream>
-<<<<<<< HEAD
+/* <<<<<<< HEAD
 #include<math.h>
 #include<vector>
 using namespace std;
@@ -75,7 +75,7 @@ node* CayleyTree(int *arr, int o, int h, int v) {
     delete height;
     return root;
 }
-=======
+======= */
 #include<cmath>
 #include<vector>
 using namespace std;
