@@ -19,21 +19,27 @@ int noOfVertices(int height, int order){
     return result;
 }
 treeNode *cayleyTree(int h, int o, int v){
-    if (h == 0){return nullptr;}
     treeNode* root = new treeNode;
-//    root->data = ar[0];
 
+    if (h == 0){return root;}
+    
     root->parent = new treeNode;
     root->childOne = new treeNode;
     root->childTwo = new treeNode;
+    root->parent->parent = root;
     root->childOne->parent = root;
     root->childTwo->parent = root;
-    root->parent->parent = root;
-    int idx = 3;
-    vector<treeNode*> queue({&root->parent, &root->childOne, &root->childTwo});
-
-
-
+    v -= 3;
+    vector<treeNode*> queue{root->parent,root->childOne,root->childTwo};
+    while(v>0){
+        queue[0]->childOne = new treeNode;
+        queue[0]->childOne->parent = queue[0];
+        queue[0]->childTwo = new treeNode;
+        queue[0]->childTwo->parent = queue[0];
+        queue.push_back(queue[0]->childOne);
+        queue.push_back(queue[0]->childTwo);
+        v-= 2;
+    }
     return root;
 }
 //treeNode* insertDataCayleyTree(int *H, int * ar){
