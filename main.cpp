@@ -45,7 +45,7 @@ treeNode *cayleyTree(int h, int o, int v){
     }
     return root;
 }
-treeNode* insertDataCayleyTree(treeNode* head, int * ar){
+treeNode* insertDataCayleyTree(treeNode* head, int * ar, int v){
     vector<treeNode*> queue;
     queue.push_back(head);
     int idx = 0;
@@ -54,17 +54,19 @@ treeNode* insertDataCayleyTree(treeNode* head, int * ar){
     queue.push_back(queue[0]->childOne);
     queue.push_back(queue[0]->childTwo);
     queue.erase(queue.begin());
-    while(queue.size()){
+    while(queue.size() and idx < v){
         queue[0]->data = ar[idx++];
         queue.push_back(queue[0]->childOne);
         queue.push_back(queue[0]->childTwo);
+        // cout<<queue.size();
         queue.erase(queue.begin());
+        // cout<<queue.size();
     }
 //    return nullptr;
 }
 int main(){
-    int order = 2,height;
-    cin>>height;
+    int order = 2,height=2;
+    // cin>>height;
     int V = noOfVertices(height, order);
     int arr[V];
     for(int i = 0;i<V;i++){
@@ -72,7 +74,7 @@ int main(){
     }
 
     treeNode* CT = cayleyTree(height, order,V);
-    insertDataCayleyTree(CT, arr);
+    insertDataCayleyTree(CT, arr,V);
     delete CT->childTwo;
     delete CT->childOne;
     delete CT->parent;
