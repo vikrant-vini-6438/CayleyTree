@@ -22,7 +22,7 @@ treeNode *cayleyTree(int h, int o, int v){
     treeNode* root = new treeNode;
 
     if (h == 0){return root;}
-    
+
     root->parent = new treeNode;
     root->childOne = new treeNode;
     root->childTwo = new treeNode;
@@ -45,28 +45,54 @@ treeNode *cayleyTree(int h, int o, int v){
     }
     return root;
 }
-treeNode* insertDataCayleyTree(treeNode* head, int * ar, int v){
+void insertDataCayleyTree(treeNode* head, int * ar){
     vector<treeNode*> queue;
     queue.push_back(head);
     int idx = 0;
-    queue[0]->data = ar[idx++];
+//    queue[0]->data = ar[idx++];
     queue.push_back(queue[0]->parent);
-    queue.push_back(queue[0]->childOne);
-    queue.push_back(queue[0]->childTwo);
-    queue.erase(queue.begin());
-    while(queue.size() and idx < v){
+//    queue.push_back(queue[0]->childOne);
+//    queue.push_back(queue[0]->childTwo);
+//    queue.erase(queue.begin());
+//    while(queue.size() and idx < V){
+    while(queue[0] != nullptr){
         queue[0]->data = ar[idx++];
         queue.push_back(queue[0]->childOne);
         queue.push_back(queue[0]->childTwo);
-        // cout<<queue.size();
+//        cout<<queue.size();
         queue.erase(queue.begin());
-        // cout<<queue.size();
+//        cout<<queue.size();
     }
 //    return nullptr;
 }
+
+void printCayleyTree(treeNode* head){
+    cout<<"present-node | parent | child-one | child-two"<<endl;
+    vector<treeNode*>queue;
+    queue.push_back(head);
+    queue.push_back(queue[0]->parent);
+    while(queue[0] != nullptr){
+        //for leaf nodes:
+        if(queue[0]->childOne == nullptr){
+            cout<<"leaf node: "<<queue[0]->data;
+        }
+        //for internal nodes
+        else {
+            cout << queue[0]->data << "\t\t";
+            cout << queue[0]->parent->data << "\t\t";
+            cout << queue[0]->childOne->data << "\t\t";
+            cout << queue[0]->childTwo->data << "\t\t";
+        }
+        queue.push_back(queue[0]->childOne);
+        queue.push_back(queue[0]->childTwo);
+        queue.erase(queue.begin());
+        cout<<endl;
+    }
+}
 int main(){
-    int order = 2,height=2;
-    // cin>>height;
+    int order = 2,height;
+    cout<<"height:";
+    cin>>height;
     int V = noOfVertices(height, order);
     int arr[V];
     for(int i = 0;i<V;i++){
@@ -74,7 +100,8 @@ int main(){
     }
 
     treeNode* CT = cayleyTree(height, order,V);
-    insertDataCayleyTree(CT, arr,V);
+    insertDataCayleyTree(CT, arr);
+    printCayleyTree(CT);
     delete CT->childTwo;
     delete CT->childOne;
     delete CT->parent;
