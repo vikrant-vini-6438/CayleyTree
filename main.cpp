@@ -89,6 +89,26 @@ void printCayleyTree(treeNode* head){
         cout<<endl;
     }
 }
+
+void deleteCayleyTree(treeNode* head){
+    vector<treeNode*> tempo;
+    treeNode* temp = head;
+    tempo.push_back(head);
+    tempo.push_back(head->parent);
+    int idx = 0;
+    while(temp->childOne != nullptr){
+        tempo.push_back(temp->childOne);
+        tempo.push_back(temp->childTwo);
+        temp = tempo[++idx];
+    }
+    idx = tempo.size();
+    while(idx > 0){
+        temp = tempo[--idx];
+//        cout<<idx;
+        delete temp;
+    }
+}
+
 int main(){
     int order = 2,height;
     cout<<"height:";
@@ -102,9 +122,8 @@ int main(){
     treeNode* CT = cayleyTree(height, order,V);
     insertDataCayleyTree(CT, arr);
     printCayleyTree(CT);
-    delete CT->childTwo;
-    delete CT->childOne;
-    delete CT->parent;
-    delete CT;
+//    cout<<CT->data;
+    deleteCayleyTree(CT);
+//    cout<<CT->data;
     return 0;
 }

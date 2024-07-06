@@ -1,4 +1,4 @@
-# Install script for directory: F:/IIEST/PROJECT/CA on Graphs/CT
+# Install script for directory: F:/IIEST/PROJECT/CA on Graphs/CayleyTree
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "F:/IIEST/PROJECT/CA on Graphs/CT/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "F:/IIEST/PROJECT/CA on Graphs/CayleyTree/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

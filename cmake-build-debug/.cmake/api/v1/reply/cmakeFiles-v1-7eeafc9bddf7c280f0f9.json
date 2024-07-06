@@ -777,8 +777,8 @@
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "F:/IIEST/PROJECT/CA on Graphs/CT/cmake-build-debug",
-		"source" : "F:/IIEST/PROJECT/CA on Graphs/CT"
+		"build" : "F:/IIEST/PROJECT/CA on Graphs/CayleyTree/cmake-build-debug",
+		"source" : "F:/IIEST/PROJECT/CA on Graphs/CayleyTree"
 	},
 	"version" : 
 	{
